@@ -1,12 +1,50 @@
+//Import required features for this component
 import React from "react"
 import Image from "gatsby-image"
 import { Link } from "gatsby"
 import { graphql, useStaticQuery } from "gatsby"
 import SocialLinks from "../constants/socialLinks"
-// ...GatsbyImageSharpFluid
+import {HeaderHero, CenterHero, InfoHero} from "../elements/HeroElement"
 
+
+const query = graphql`
+{
+  file(relativePath: {eq: "hero-img.png"}) {
+    childImageSharp {
+      fluid {
+        ...GatsbyImageSharpFluid
+      }
+    }
+  }
+}
+`
 const Hero = () => {
-  return <h2>hero component</h2>
+  const {
+    file:{
+      childImageSharp:{fluid}
+    },
+   } = useStaticQuery(query);
+
+  return (
+  <HeaderHero>
+    <CenterHero className="section-center">
+      <InfoHero className="hero-info">
+        <div className="hero-info">
+          <div className="underline">
+            <h1>Michel Ibrahim</h1>
+            <h4>Software Developer and sports enthusiast</h4>
+            <Link to="/contact" className="btn">
+              Contact me
+            </Link>
+            <SocialLinks />
+          </div>
+        </div>
+
+      </InfoHero>
+      <Image fluid={fluid} className="hero-img"/>
+      </CenterHero>
+    </HeaderHero>
+  )
 }
 
 export default Hero

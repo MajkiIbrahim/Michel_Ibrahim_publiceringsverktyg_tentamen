@@ -1,19 +1,21 @@
+// Create constants which can be imported wherever it is needed for easy acess.
+
 import React from "react"
 import { Link } from "gatsby"
 const data = [
   {
     id: 1,
-    text: "home",
+    text: "Home",
     url: "/",
   },
   {
     id: 2,
-    text: "about",
+    text: "CV",
     url: "/about/",
   },
   {
     id: 3,
-    text: "projects",
+    text: "project",
     url: "/projects/",
   },
   {
