@@ -2,12 +2,10 @@ import React from "react"
 import Layout from "../components/Layout"
 import { graphql } from "gatsby"
 import Blogs from "../components/Blogs"
-import SEO from "../commponents/SEO"
 
 const Blog = ({data:{allStrapiBlogs:{nodes:blogs}}}) => {
   return (
   <Layout>
-    <SEO title="blogs" description="blog-articles" />
     <section className="blog-page">
       <Blogs blogs={blogs} title="blog" />
     </section>
